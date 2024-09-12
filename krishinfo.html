@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishi Info</title>
+    <style>
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            header {
+                padding: 5px 0;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347; /* Tomato color on hover */
+        }
+
+        .menu-toggle {
+            font-size: 1.5rem;
+            padding-right: 20px;
+            cursor: pointer;
+            display: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background-color: #fff;
+            padding: 20px;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulseBorder 2s linear infinite;
+        }
+
+        .intro h1 {
+            color: #3498db;
+        }
+
+        @keyframes pulseBorder {
+            0% {
+                border-color: rgba(146, 228, 3, 0.889);
+            }
+            50% {
+                border-color: red;
+            }
+            100% {
+                border-color: rgb(44, 198, 72);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="image.html">Images</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="ourproducts.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="krishinfo.html">Krishi Info</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">&#9776;</div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h1>Welcome to Krishi Info: Your Source for Agricultural Insights</h1>
+            <p>The N.B Krishi Farm is located in Malarani-5 Bangi Baghari, Arghakganchi, Nepal. Established in the year 2070, the N.B Krishi Farm is a family-driven endeavor.</p>
+            <p>At Krishi Info, we're dedicated to providing you with the latest and most valuable information in the world of agriculture and farming. Whether you're a seasoned farmer or just getting started, our platform is here to empower you with knowledge, tips, and resources to make your agricultural journey a success.</p>
+            <p>Explore our wide range of articles, guides, and expert advice covering topics such as crop cultivation, livestock management, sustainable farming practices, market trends, and much more. Our mission is to support farmers in making informed decisions that lead to higher yields, healthier crops, and thriving farms.</p>
+            <p>Join us in nurturing a greener future and reaping the rewards of your hard work. Together, we can cultivate not just crops, but also knowledge and prosperity.</p>
+            <p>Happy farming!</p>
+            <p>The Krishi Info Team</p>
+        </div>
+        
+        <section id="products">
+            <h2>Our Products</h2>
+            <ul>
+                <li>Organic Fertilizers</li>
+                <li>Seeds and Saplings</li>
+                <li>Farm Machinery</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us with any inquiries.</p>
+            <address>
+                Email: <a href="mailto:N.Bkrishiform@gmail.com">N.Bkrishiform@gmail.com</a><br>
+                Phone: <a href="tel:9847531504" style="text-decoration: none; color: #3498db;">9847531504</a>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Krishi Info</p>
+    </footer>
+</body>
+</html>
