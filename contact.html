@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+        }
+
+        header {
+            background-color: #3498db; /* Primary color for header */
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; /* Center-align the nav items */
+            gap: 15px; /* Add space between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            background-color: #2980b9; /* Button color */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #1c6ea4;
+            transform: scale(1.05);
+        }
+
+        .main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white; /* White background for main content */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .contact-info a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="button" href="index.html">Home</a>
+            <a class="button" href="image.html">Images</a>
+            <a class="button" href="videos.html">Videos</a>
+            <a class="button" href="ourproducts.html">Products</a>
+            <a class="button" href="contact.html">Contact</a>
+            <a class="button" href="krishinfo.html">Krishi Info</a>
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="contact-info">
+            <p>Click here to contact the chief of this farm: <a href="tel:9847531504">Click here</a></p>
+        </div>
+
+        <div class="image-container">
+            <img src="th.jpeg" alt="Farm Image"> <!-- Add the correct image source -->
+        </div>
+    </div>
+</body>
+</html>
