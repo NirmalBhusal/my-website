@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #2980b9;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #counter {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #3498db;
+        }
+
+        .feedback-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            visibility: hidden; /* Hide buttons initially */
+        }
+
+        .feedback-buttons button {
+            width: auto;
+            padding: 10px 20px;
+        }
+
+        .feedback-buttons p {
+            margin: 0;
+            font-size: 18px;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#images">Images</a>
+            <a href="#video">Video</a>
+            <a href="#product">Product</a>
+            <a href="#contact">Contact</a>
+            <a href="#krishi-info">Krishi Info</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Join Our Website</h2>
+            <form id="customer-form">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="message"></p>
+            <p id="counter">Total Unique Users: 0</p>
+
+            <div class="feedback-buttons" id="feedback-buttons">
+                <button id="like-button">Like</button>
+                <button id="dislike-button">Dislike</button>
+                <p id="like-count">Likes: 0</p>
+                <p id="dislike-count">Dislikes: 0</p>
+            </div>
+
+            <h2>Feedback</h2>
+            <textarea id="feedback" placeholder="Enter your feedback here..."></textarea>
+            <button id="send-feedback">Send Feedback</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const customerForm = document.getElementById("customer-form");
+            const messageElement = document.getElementById("message");
+            const counterElement = document.getElementById("counter");
+            const feedbackButtons = document.getElementById("feedback-buttons");
+
+            const uniqueNames = new Set();
+            let userCount = 0;
+
+            // Feedback counters
+            let likeCount = 0;
+            let dislikeCount = 0;
+
+            // Elements for feedback
+            const likeButton = document.getElementById("like-button");
+            const dislikeButton = document.getElementById("dislike-button");
+            const likeCountElement = document.getElementById("like-count");
+            const dislikeCountElement = document.getElementById("dislike-count");
+
+            // Feedback sending
+            const feedbackButton = document.getElementById("send-feedback");
+            const feedbackTextarea = document.getElementById("feedback");
+            const whatsappNumber = "9847531504";
+
+            customerForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                const firstName = document.getElementById("first-name").value.trim();
+                const lastName = document.getElementById("last-name").value.trim();
+                const fullName = `${firstName} ${lastName}`;
+
+                if (uniqueNames.has(fullName)) {
+                    messageElement.textContent = "This name has already been used.";
+                    messageElement.style.color = 'red'; // Make the message visible
+                } else {
+                    uniqueNames.add(fullName);
+                    userCount++;
+                    messageElement.textContent = "You are part of nbkrishi.com.np";
+                    messageElement.style.color = 'green'; // Make the message visible
+                    counterElement.textContent = `Total Unique Users: ${userCount}`;
+                    feedbackButtons.style.visibility = 'visible';
+                }
+
+                customerForm.reset();
+            });
+
+            likeButton.addEventListener("click", function() {
+                likeCount++;
+                likeCountElement.textContent = `Likes: ${likeCount}`;
+            });
+
+            dislikeButton.addEventListener("click", function() {
+                dislikeCount++;
+                dislikeCountElement.textContent = `Dislikes: ${dislikeCount}`;
+            });
+
+            feedbackButton.addEventListener("click", function() {
+                const feedback = feedbackTextarea.value.trim();
+                if (feedback) {
+                    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(feedback)}`;
+                    window.open(whatsappLink, '_blank');
+                } else {
+                    alert("Please enter your feedback before sending.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
