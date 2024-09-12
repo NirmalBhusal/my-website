@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1; /* Light background color */
+        }
+
+        header {
+            background-color: #2c3e50; /* Darker header color */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3498db; /* Button color */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .main {
+            display: flex;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white; /* White background for the main content area */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        .video-container {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .video-container video {
+            display: block;
+            margin: 20px auto;
+            height: auto;
+            width: 100%;
+            max-width: 640px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9; /* Light background for the sidebar */
+            border-left: 2px solid #ddd; /* Subtle border on the left */
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 600px; /* Set a fixed height for scrolling */
+            position: relative;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333; /* Dark text color for the sidebar heading */
+        }
+
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .video-list video {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-button:hover {
+            background-color: #2980b9;
+        }
+
+        .scroll-button.left {
+            left: -30px;
+        }
+
+        .scroll-button.right {
+            right: -30px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a class="button" href="index.html">Home</a>
+        <a class="button" href="image.html">Images</a>
+        <a class="button" href="videos.html">Videos</a>
+        <a class="button" href="ourproducts.html">Products</a>
+        <a class="button" href="contact.html">Contact</a>
+        <a class="button" href="krishinfo.html">Krishi Info</a>
+    </header>
+    
+    <div class="main">
+        <div class="video-container">
+            <video controls>
+                <source src="20230707_082643.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video controls muted>
+                <source src="20230707_082643.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="sidebar">
+            <button class="scroll-button left" onclick="scrollSidebar(-1)">&#9664;</button>
+            <button class="scroll-button right" onclick="scrollSidebar(1)">&#9654;</button>
+
+            <h3>More Videos</h3>
+            <div class="video-list" id="videoList">
+                <video src="video1.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video2.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video3.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video4.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video5.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video6.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video7.mp4" onclick="playVideo(this.src)" controls></video>
+                <video src="video8.mp4" onclick="playVideo(this.src)" controls></video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollSidebar(direction) {
+            const sidebar = document.getElementById('videoList');
+            sidebar.scrollBy({
+                left: direction * 300,
+                behavior: 'smooth'
+            });
+        }
+
+        function playVideo(src) {
+            const videos = document.querySelectorAll('.video-container video');
+            videos.forEach(video => {
+                video.src = src;
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
